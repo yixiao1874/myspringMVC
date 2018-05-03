@@ -13,6 +13,7 @@ public class MyDefaultSqlSession implements MySqlSession {
     }
 
     @Override
+    //传入StudentMapper.class
     public <T> T getMapper(Class<T> interfaces) {
         return (T) Proxy.newProxyInstance(interfaces.getClassLoader(),new Class[]{interfaces},
                 new MyMapperProxy(this));
